@@ -21,6 +21,7 @@ class WorkshopController {
                 tags,
                 image,
                 date,
+                host_id,
             });
 
             await workshop.save();
@@ -107,6 +108,7 @@ class WorkshopController {
                 tags,
                 image,
                 date,
+                host_id,
             };
     
             const { _id } = req.params;

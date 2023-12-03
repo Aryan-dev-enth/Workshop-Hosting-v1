@@ -27,6 +27,10 @@ const workshopSceham=new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
+    },
+    host_id:{
+        type:String,
+        required:true,
     }
 })
 
