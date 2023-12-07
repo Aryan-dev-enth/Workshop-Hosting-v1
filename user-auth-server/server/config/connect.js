@@ -5,7 +5,7 @@ const connectDb= async(url) =>{
     {
         console.log("Connecting to MongoDB");
         const DB={
-            dbName:"WorkShopApp"
+            dbName:"accounts"
         }
         await mongoose.connect(url,DB);
         console.log("Connected to MongoDB");
