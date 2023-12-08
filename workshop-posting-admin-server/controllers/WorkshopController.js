@@ -142,6 +142,39 @@ class WorkshopController {
             });
         }
     };
+
+    static workshopDeleteById = async (req, res) => {
+        try {
+            const id = req.params._id;
+
+            if (!id) {
+                return res.status(400).send({
+                    status: "failed",
+                    message: "Workshop ID parameter is required",
+                });
+            }
+
+            const deletedWorkshop = await WorkshopModel.findByIdAndDelete(id);
+
+            if (!deletedWorkshop) {
+                return res.status(404).send({
+                    status: "failed",
+                    message: "Workshop not found",
+                });
+            }
+
+            res.send({
+                status: "success",
+                message: "Workshop deleted successfully",
+                data: deletedWorkshop,
+            });
+        } catch (error) {
+            res.status(500).send({
+                status: "failed",
+                message: error.message,
+            });
+        }
+    };
     
     
 }
