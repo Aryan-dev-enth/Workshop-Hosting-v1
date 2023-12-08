@@ -5,8 +5,7 @@ import cors from 'cors';
 import connectDb from './config/connect.js';
 
 import workshopRoutes from './routes/workshopRoutes.js'
-// //importing routes
-// import userRoutes from './routes/userRoutes.js';
+import userRoutes from './routes/userRoutes.js'
 
 
 //functions
@@ -25,6 +24,8 @@ app.use(express.json());
 
 //Loading routes
 app.use("/workshop",workshopRoutes);
+app.use("/user",userRoutes);
+
 
 
 
