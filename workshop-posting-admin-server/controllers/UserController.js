@@ -63,6 +63,35 @@ class UserController {
                 message: error.message
             });
         }
+
+        
+    }
+    static getWorkshop = async(req, res)=>{
+        try {
+            const {email}=req.body
+
+            const user = await UserModel.findOne({ email: email });     
+
+            if(user)
+            {
+                res.send({
+                    data: user.workshopSubscribed,
+                    status:"success",
+                })
+            }
+            else
+            {
+                res.send({
+                    status: "failed",
+                    message: "User not found !"
+                })
+            }
+        } catch (error) {
+            res.send({
+                status: "success",
+                message: error.message
+            })
+        }
     }
 }
 
